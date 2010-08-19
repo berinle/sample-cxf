@@ -1,0 +1,5 @@
+#ignore build directory
+build/
+
+#ignore gradle build artifacts
+.gradle/

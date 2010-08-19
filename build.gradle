@@ -1,0 +1,23 @@
+apply plugin: 'java'
+apply plugin: 'eclipse'
+
+repositories {
+	mavenCentral()
+}
+
+cxfVersion = '2.2.3'
+
+dependencies {
+	
+	compile 'org.apache.cxf:cxf-rt-frontend-jaxws:2.2.3'
+	compile 'org.apache.cxf:cxf-rt-transports-http:2.2.3'
+	compile 'org.apache.cxf:cxf-rt-transports-http-jetty:2.2.3'
+}
+
+// generate .classpath files without GRADLE_CACHE variable (GRADLE-1079)
+//eclipseClasspath.variables = [:]
+
+// utility tasks to list all jars used for compiling
+task listJars << {
+	configurations.compile.each { File file -> println file.name }
+}
