@@ -5,12 +5,8 @@
 	xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans-2.5.xsd
 	http://cxf.apache.org/jaxws http://cxf.apache.org/schemas/jaxws.xsd">
 
-	<import resource="classpath:META-INF/cxf/cxf.xml"/>
-	<import resource="classpath:META-INF/cxf/cxf-extension-soap.xml"/>
-	<import resource="classpath:META-INF/cxf/cxf-servlet.xml"/>
-	
-	<jaxws:endpoint id="helloWorld"
-	implementor="spring.HelloWorldImpl"
-	address="/HelloWorld"/>
+	<jaxws:client address="http://localhost:8080/sample-cxf/HelloWorld"
+		id="helloClient"
+		serviceClass="spring.HelloWorld"/>
 
 </beans>
